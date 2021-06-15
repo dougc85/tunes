@@ -1,93 +1,93 @@
 class Picker {
   constructor(newList, medList, knowList, fullKnow) {
-    self.newList = [...newList];
-    self.medList = [...medList];
-    self.knowList = [...knowList];
-    self.fullKnow = fullKnow;
+    this.newList = [...newList];
+    this.medList = [...medList];
+    this.knowList = [...knowList];
+    this.fullKnow = fullKnow;
 
-    self.currentList = self.newList;
-    self.choices = ['new', 'new', 'new', 'new', 'med', 'med', 'know'];
+    this.currentList = this.newList;
+    this.choices = ['new', 'new', 'new', 'new', 'med', 'med', 'know'];
 
-    self.keys = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab'];
+    this.keys = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab'];
   }
 
-  //Sets self.currentList to the list that will be selected from
+  //Sets this.currentList to the list that will be selected from
   _chooseList() {
 
     //If new lists are depleted, always return knowList
-    if (self.newList.length == 0 && self.medList.length == 0) {
-      if (self.knowList.length == 0) {
-        self._resetKnowList();
-        window.localStorage.setItem('tuneStorageKnow', JSON.stringify(self.knowList));
+    if (this.newList.length == 0 && this.medList.length == 0) {
+      if (this.knowList.length == 0) {
+        this._resetKnowList();
+        window.localStorage.setItem('tuneStorageKnow', JSON.stringify(this.knowList));
       }
-      self.currentList = knowList;
+      this.currentList = knowList;
       return;
     }
 
     //Reset choices if necessary
-    if (self.choices.length == 0) {
-      self.choices = ['new', 'new', 'new', 'new', 'med', 'med', 'know'];
+    if (this.choices.length == 0) {
+      this.choices = ['new', 'new', 'new', 'new', 'med', 'med', 'know'];
     }
 
-    const choicePosition = Math.floor(Math.rand * self.choices.length)
-    const choice = self.choices[choicePosition];
-    self.choices.splice(choicePosition, 1);
+    const choicePosition = Math.floor(Math.rand * this.choices.length)
+    const choice = this.choices[choicePosition];
+    this.choices.splice(choicePosition, 1);
 
     switch (choice) {
       case 'new':
         if (newList.length == 0) {
-          self.chooseList();
+          this.chooseList();
           break;
         }
-        self.currentList = self.newList;
+        this.currentList = this.newList;
         break;
       case 'med':
         if (medList.length == 0) {
-          self.chooseList();
+          this.chooseList();
           break;
         }
-        self.currentList = self.medList;
+        this.currentList = this.medList;
         break;
       default:
-        if (self.knowList.length == 0) {
-          self._resetKnowList();
+        if (this.knowList.length == 0) {
+          this._resetKnowList();
         }
-        self.currentList = self.knowList;
+        this.currentList = this.knowList;
     }
   }
 
   _resetKnowList() {
-    self.knowList = [...self.fullKnow];
+    this.knowList = [...this.fullKnow];
   }
 
   pickTune() {
 
-    self._chooseList();
+    this._chooseList();
 
-    const choicePosition = Math.floor(Math.random() * self.currentList.length);
-    const choice = self.currentList[choicePosition];
-    self.currentList.splice(choicePosition, 1);
+    const choicePosition = Math.floor(Math.random() * this.currentList.length);
+    const choice = this.currentList[choicePosition];
+    this.currentList.splice(choicePosition, 1);
 
     //Update localStorage
-    if (self.currentList == self.newList) {
-      window.localStorage.setItem('tuneStorageNew', JSON.stringify(self.newList));
-    } else if (self.currentList == self.medList) {
-      window.localStorage.setItem('tuneStorageMed', JSON.stringify(self.medList));
+    if (this.currentList == this.newList) {
+      window.localStorage.setItem('tuneStorageNew', JSON.stringify(this.newList));
+    } else if (this.currentList == this.medList) {
+      window.localStorage.setItem('tuneStorageMed', JSON.stringify(this.medList));
     } else {
-      window.localStorage.setItem('tuneStorageKnow', JSON.stringify(self.knowList));
+      window.localStorage.setItem('tuneStorageKnow', JSON.stringify(this.knowList));
     }
 
     return choice;
   }
 
   pickKey() {
-    if (self.keys.length == 0) {
-      self.keys = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab'];
+    if (this.keys.length == 0) {
+      this.keys = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab'];
     }
 
-    const choicePosition = Math.floor(Math.random() * self.keys.length);
-    const choice = self.keys[choicePosition];
-    self.keys.splice(choicePosition, 1);
+    const choicePosition = Math.floor(Math.random() * this.keys.length);
+    const choice = this.keys[choicePosition];
+    this.keys.splice(choicePosition, 1);
 
     return choice;
   }

@@ -5,13 +5,33 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tunes</title>
+  <title>tunePicker</title>
 
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Viaoda+Libre&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <h1></h1>
+  <h1 class="app-name">tunePicker</h1>
+
+  <div class="tune-wrapper">
+    <p class="tune-name"></p>
+  </div>
+
+  <p class="key">F#</p>
+
+  <button class="next-button">NEXT</button>
+
+  <div class="small-buttons-wrapper">
+    <button class="skip-button small-btn">SKIP</button>
+    <button class="raise-button small-btn">&uarr;</button>
+    <button class="lower-button small-btn">&darr;</button>
+  </div>
+
+
+  <div class="see-edits-button">see edits</div>
 
   <script src="javascript/lists.js"></script>
   <script src="javascript/Picker.js"></script>

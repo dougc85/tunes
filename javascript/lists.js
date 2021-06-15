@@ -8,9 +8,9 @@ const tuneStorageMedJSON = window.localStorage.getItem('tuneStorageMed');
 const tuneStorageKnowJSON = window.localStorage.getItem('tuneStorageKnow');
 
 
-const newList = tuneStorageNewJSON ? JSON.parse(tuneStorageNewJSON) : [...fullNew];
-const medList = tuneStorageMedJSON ? JSON.parse(tuneStorageMedJSON) : [...fullMed];
-const knowList = tuneStorageKnowJSON ? JSON.parse(tuneStorageKnowJSON) : [...fullKnow];
+let newList = tuneStorageNewJSON ? JSON.parse(tuneStorageNewJSON) : [...fullNew];
+let medList = tuneStorageMedJSON ? JSON.parse(tuneStorageMedJSON) : [...fullMed];
+let knowList = tuneStorageKnowJSON ? JSON.parse(tuneStorageKnowJSON) : [...fullKnow];
 
 // Store lists in storage and then do that in the Picker file, too
 if (newList.length == 0) {
