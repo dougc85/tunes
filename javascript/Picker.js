@@ -7,6 +7,8 @@ class Picker {
 
     self.currentList = self.newList;
     self.choices = ['new', 'new', 'new', 'new', 'med', 'med', 'know'];
+
+    self.keys = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab'];
   }
 
   //Sets self.currentList to the list that will be selected from
@@ -74,6 +76,18 @@ class Picker {
     } else {
       window.localStorage.setItem('tuneStorageKnow', JSON.stringify(self.knowList));
     }
+
+    return choice;
+  }
+
+  pickKey() {
+    if (self.keys.length == 0) {
+      self.keys = ['A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab'];
+    }
+
+    const choicePosition = Math.floor(Math.random() * self.keys.length);
+    const choice = self.keys[choicePosition];
+    self.keys.splice(choicePosition, 1);
 
     return choice;
   }
