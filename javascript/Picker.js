@@ -1,8 +1,8 @@
 class Picker {
   constructor(newList, medList, knowList, fullKnow) {
-    self.newList = newList;
-    self.medList = medList;
-    self.knowList = knowList;
+    self.newList = [...newList];
+    self.medList = [...medList];
+    self.knowList = [...knowList];
     self.fullKnow = fullKnow;
 
     self.currentList = self.newList;
@@ -16,6 +16,7 @@ class Picker {
     if (self.newList.length == 0 && self.medList.length == 0) {
       if (self.knowList.length == 0) {
         self._resetKnowList();
+        window.localStorage.setItem('tuneStorageKnow', JSON.stringify(self.knowList));
       }
       self.currentList = knowList;
       return;
@@ -64,6 +65,15 @@ class Picker {
     const choicePosition = Math.floor(Math.random() * self.currentList.length);
     const choice = self.currentList[choicePosition];
     self.currentList.splice(choicePosition, 1);
+
+    //Update localStorage
+    if (self.currentList == self.newList) {
+      window.localStorage.setItem('tuneStorageNew', JSON.stringify(self.newList));
+    } else if (self.currentList == self.medList) {
+      window.localStorage.setItem('tuneStorageMed', JSON.stringify(self.medList));
+    } else {
+      window.localStorage.setItem('tuneStorageKnow', JSON.stringify(self.knowList));
+    }
 
     return choice;
   }
