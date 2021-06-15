@@ -1,1 +1,1 @@
-# tunes
+This app will randomly offer a tune and a key each time it is used.  It will pick from the New Tunes list most often, then from the Intermediate tunes list, and it will pick least often from the Tunes I Know list.
