@@ -8,12 +8,10 @@ const tuneStorageMedJSON = window.localStorage.getItem('tuneStorageMed');
 const tuneStorageKnowJSON = window.localStorage.getItem('tuneStorageKnow');
 const tuneStorageEditsJSON = window.localStorage.getItem('tuneStorageEdits');
 
-let newList = tuneStorageNewJSON ? (JSON.parse(tuneStorageNewJSON)).new : [];
-let medList = tuneStorageMedJSON ? (JSON.parse(tuneStorageMedJSON)).med : [];
-let knowList = tuneStorageKnowJSON ? (JSON.parse(tuneStorageKnowJSON)).know : [];
-let editsArray = tuneStorageEditsJSON ? (JSON.parse(tuneStorageEditsJSON)).edits : [];
-
-
+let newList = tuneStorageNewJSON ? (JSON.parse(tuneStorageNewJSON)) : [];
+let medList = tuneStorageMedJSON ? (JSON.parse(tuneStorageMedJSON)) : [];
+let knowList = tuneStorageKnowJSON ? (JSON.parse(tuneStorageKnowJSON)) : [];
+let editsArray = tuneStorageEditsJSON ? (JSON.parse(tuneStorageEditsJSON)) : [];
 
 if (newList == undefined || newList.length == 0) {
   newList = [...fullNew];
@@ -28,7 +26,7 @@ if (editsArray == undefined) {
   editsArray = [];
 }
 
-window.localStorage.setItem('tuneStorageNew', JSON.stringify({ new: newList }));
-window.localStorage.setItem('tuneStorageMed', JSON.stringify({ med: medList }));
-window.localStorage.setItem('tuneStorageKnow', JSON.stringify({ know: knowList }));
-window.localStorage.setItem('tuneStorageEdits', JSON.stringify({ edits: editsArray }));
+window.localStorage.setItem('tuneStorageNew', JSON.stringify(newList));
+window.localStorage.setItem('tuneStorageMed', JSON.stringify(medList));
+window.localStorage.setItem('tuneStorageKnow', JSON.stringify(knowList));
+window.localStorage.setItem('tuneStorageEdits', JSON.stringify(editsArray));

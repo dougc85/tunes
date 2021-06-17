@@ -15,16 +15,18 @@ class Picker {
 
   //Sets this.currentList to the list that will be selected from
   chooseList() {
-
     //If new lists are depleted, always return knowList
     if (this.newList.length == 0 && this.medList.length == 0) {
+
 
       if (this.knowList.length == 0) {
         this._resetKnowList();
         window.localStorage.setItem('tuneStorageKnow', JSON.stringify(this.knowList));
       }
-      this.currentList = knowList;
+
+      this.currentList = this.knowList;
       return 'know';
+
     }
 
     //Reset choices if necessary
@@ -50,7 +52,7 @@ class Picker {
         }
         this.currentList = this.medList;
         break;
-      default:
+      case 'know':
         if (this.knowList.length == 0) {
           this._resetKnowList();
         }
