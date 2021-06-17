@@ -176,10 +176,8 @@ body {
   opacity: 0;
   transition: opacity .2s;
   display: flex;
-  justify-content: stretch;
-  align-items: stretch;
+  align-items: flex-start;
   backface-visibility: hidden;
-  padding-bottom: 20vh;
 }
 
 .edits-close {
@@ -201,7 +199,10 @@ body {
   padding-top: 5rem;
   overflow-y: scroll;
   position: relative;
+  height: 60vh;
 }
+
+
 
 .edits-list {
   width: 100%;

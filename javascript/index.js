@@ -200,6 +200,15 @@ function renderEdits() {
 
   editsList.innerHTML = '';
 
+  if (editsArray.length === 0) {
+    const newLi = document.createElement('li');
+    newLi.classList.add('edits-list-item')
+    newLi.textContent = 'You have not yet made any edits.';
+    newLi.style.textAlign = 'center';
+    newLi.style.listStyleType = 'none';
+    editsList.append(newLi);
+  }
+
   for (let i = 0; i < editsArray.length; i++) {
     const newLi = document.createElement('li');
     newLi.classList.add('edits-list-item')
@@ -211,6 +220,9 @@ function renderEdits() {
 }
 
 function clearHandler() {
+  if (editsArray.length === 0) {
+    return;
+  }
   editsList.innerHTML = '';
   editsArray = [];
   window.localStorage.setItem('tuneStorageEdits', JSON.stringify(editsArray));
