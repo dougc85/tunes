@@ -79,7 +79,7 @@ function skipHandler() {
 }
 
 function seeEditsHandler() {
-  editsBackground.style.height = '100vh';
+  editsBackground.style.height = '80vh';
   editsBackground.style.opacity = '1';
 
   edits.classList.add('edits-onclick');
