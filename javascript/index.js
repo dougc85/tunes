@@ -81,6 +81,7 @@ function skipHandler() {
 function seeEditsHandler() {
   editsBackground.style.height = '100vh';
   editsBackground.style.opacity = '1';
+  document.body.style.overflowY = 'hidden';
 
   edits.classList.add('edits-onclick');
 }
@@ -92,6 +93,7 @@ function editsCloseHandler() {
   }, 150);
   setTimeout(() => {
     editsBackground.style.height = '0vh';
+    document.body.style.overflowY = 'visible';
   }, 400);
 }
 
@@ -99,6 +101,7 @@ function raiseHandler() {
   levelChangePopup.classList.add('popped-popup');
   popupBackground.style.height = ('105vh');
   popupBackground.style.opacity = ('1');
+  document.body.style.overflowY = 'hidden';
 
 
   if (currentList == 'new') {
@@ -126,6 +129,7 @@ function lowerHandler() {
   levelChangePopup.classList.add('popped-popup');
   popupBackground.style.height = ('105vh');
   popupBackground.style.opacity = ('1');
+  document.body.style.overflowY = 'hidden';
 
   if (currentList == 'new') {
     levelChangePopup.style.backgroundColor = "#eee";
@@ -155,6 +159,7 @@ function removePopup() {
   }, 150);
   setTimeout(() => {
     popupBackground.style.height = '0vh';
+    document.body.style.overflowY = 'visible';
   }, 400);
 }
 
