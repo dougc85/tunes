@@ -235,6 +235,8 @@ body {
   cursor: pointer;
 }
 
+button { touch-action: manipulation; };
+
 
 /*
 
