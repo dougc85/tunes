@@ -13,6 +13,9 @@ html {
 body {
   box-sizing: border-box;
   text-align: center;
+  position: relative;
+  backface-visibility: hidden;
+  overflow-x: hidden;
 }
 
 .app-name {
@@ -102,10 +105,139 @@ body {
   margin-bottom: 2rem;
 }
 
+.popup-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 105vw;
+  background-color: rgba(0,0,0, .8);
+  opacity: 0;
+  transition: opacity .2s;
+  height: 0;
+}
+
+.level-change-popup {
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  height: 12rem;
+  width: 32rem;
+  transform: translate(-50%, -50%) scale(.1);
+  background-color: #2ecc71;
+  padding: 1rem;
+  box-sizing: inherit;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 10px;
+  backface-visibility: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  opacity: 0;
+  transition: all .6s;
+}
+
+.popped-popup {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.warning-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.cancel,
+.confirm,
+.okay {
+  display: inline-block;
+  font-size: 2rem;
+  background-color: #eee;
+  border: 2px solid #0a2e19;
+  border-radius: 5px;
+  padding: .5rem;
+}
+
+.okay {
+  display: none;
+}
+
+.edits-background {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 1rem;
+  background-color: rgba(0,0,0,.8);
+  opacity: 0;
+  transition: opacity .2s;
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  backface-visibility: hidden;
+}
+
+.edits-close {
+  color: black;
+  font-size: 3rem;
+  position: absolute;
+  top: .7rem;
+  right: 1.4rem;
+  line-height: 1;
+}
+
+.edits {
+  width: 100%;
+  background-color: white;
+  margin: 3rem;
+  transform: translateY(100vh);
+  transition: transform .6s;
+  padding: 3rem;
+  padding-top: 5rem;
+  overflow-y: scroll;
+  position: relative;
+}
+
+.edits-list {
+  width: 100%;
+  text-align: left;
+}
+
+.edits-list-item {
+  font-size: 1.2rem;
+  margin-left: 1.5rem;
+}
+
+.edits-onclick {
+  transform: translateY(0);
+  transition: transform .6s;
+}
+
+.clear-container {
+  display: block;
+  width: 100%;
+  list-style: none;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.clear {
+  border: 1px solid black;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
 /*
 
-Yellow - #f1c40f
+Yellow - hsl(54, 98%, 66%)
 
-orange - #f4a322
+orange - hsl(26, 100%, 67%)
 
-emerald - #2ecc71
+emerald - hsl(145, 63%, 49%)
