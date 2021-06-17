@@ -181,7 +181,7 @@ function confirmHandler() {
 
   editsArray.push(`Add "${currentTune}" to ${targetList}`);
   renderEdits();
-  window.localStorage.setItem('tuneStorageEdits', JSON.stringify({ edits: editsArray }));
+  window.localStorage.setItem('tuneStorageEdits', JSON.stringify(editsArray));
 }
 
 function createClearButton() {
@@ -213,7 +213,7 @@ function renderEdits() {
 function clearHandler() {
   editsList.innerHTML = '';
   editsArray = [];
-  window.localStorage.setItem('tuneStorageEdits', JSON.stringify({ edits: editsArray }));
+  window.localStorage.setItem('tuneStorageEdits', JSON.stringify(editsArray));
 
   createClearButton();
 }
