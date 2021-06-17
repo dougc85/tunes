@@ -213,7 +213,7 @@ body {
 }
 
 .edits-onclick {
-  transform: translateY(0);
+  transform: translateY(10vh);
   transition: transform .6s;
 }
 
