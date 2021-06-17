@@ -179,6 +179,7 @@ body {
   justify-content: stretch;
   align-items: stretch;
   backface-visibility: hidden;
+  padding-bottom: 20vh;
 }
 
 .edits-close {
