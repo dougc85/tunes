@@ -16,6 +16,7 @@ class Picker {
   //Sets this.currentList to the list that will be selected from
   chooseList() {
     //If new lists are depleted, always return knowList
+
     if (this.newList.length == 0 && this.medList.length == 0) {
 
 
